@@ -1,10 +1,52 @@
-GET http://localhost:3000/ 
+GET http://localhost:3000/ HTTP/1.1
 
 ###
 
-GET http://localhost:3000/api/users/all 
+GET http://localhost:3000/api/users/all HTTP/1.1
 
 ###
 
-GET http://localhost:3000/api/users/66f8508c44d2a230c3a6cdf4 
+GET http://localhost:3000/api/users/66f8508c44d2a230c3a6cdf4 HTTP/1.1
 content-type: application/json
+
+### Get Backend Service
+GET https://backend-rk24.onrender.com HTTP/1.1
+
+### Create Contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Sally",
+  "lastName": "Torres",
+  "email": "saltorres@gmail.com",
+  "favoriteColor": "Pink",
+  "birthday": "06/12/2012"
+}
+
+
+### Update Contact
+PUT http://localhost:3000/contacts/66f8508c44d2a230c3a6cdf5 HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Gabriela",
+  "lastName": "Vazquez",
+  "email": "gabvaz@gmail.com",
+  "favoriteColor": "Blue",
+  "birthday": "06/28/1997"
+} 
+
+### Delete Contact
+DELETE http://localhost:3000/contacts/66f8508c44d2a230c3a6cdf6 HTTP/1.1
+content-type: application/json
+
+{
+  "id": "66f8508c44d2a230c3a6cdf6",
+  "firstName": "Shey",
+  "lastName": "Torres",
+  "email": "shey.torres@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "1985-08-30"
+}
+
