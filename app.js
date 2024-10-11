@@ -27,7 +27,7 @@ MongoDB.initDb((error, mongodb) => {
         
         app.listen(port, () => {
             console.log(`Servidor escuchando en el puerto ${port}`);
-            console.log(`Swagger UI available at http://localhost:${PORT}/api-docs`);
+            console.log(`Swagger UI available at http://localhost:${port}/api-docs`);
         })
     }
 })
