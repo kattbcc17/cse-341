@@ -7,13 +7,16 @@ import swaggerDocs from './swagger.json' assert { type: 'json' };
 
 
 dotenv.config()
+console.log("MongoDB URI:", process.env.MONGO_URI);
+
+
 const port = process.env.PORT || 3000
 
 const app = express()
 app.use(express.json())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
      res.send("Hola Mundo")
 });
 

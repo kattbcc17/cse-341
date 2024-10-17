@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: my-service
+    port: 3000
+    env:
+      PORT: 3000
+    cmd: node app.js
