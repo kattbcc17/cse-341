@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
+    "title": "Contacts Management API",
+    "description": "API for managing contacts, including creating, updating, deleting, and retrieving contact information.",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -13,17 +13,19 @@
   "paths": {
     "/api/users/all": {
       "get": {
-        "description": "",
+        "summary": "Retrieve all contacts",
+        "description": "This endpoint retrieves a list of all contacts in the database.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "A list of contacts was successfully retrieved."
           }
         }
       }
     },
     "/api/users/{id}": {
       "get": {
-        "description": "",
+        "summary": "Retrieve a single contact",
+        "description": "This endpoint retrieves a single contact by its unique ID.",
         "produces": [
           "application/json"
         ],
@@ -32,43 +34,53 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "The ID of the contact to retrieve.",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact found."
           },
           "404": {
-            "description": "Not Found"
+            "description": "Contact not found."
           }
         }
       }
     },
     "/contacts": {
       "post": {
-        "description": "",
+        "summary": "Create a new contact",
+        "description": "This endpoint creates a new contact with the provided information.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "The contact information to create.",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john.doe@example.com"
                 },
                 "favoriteColor": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "blue"
                 },
                 "birthday": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "1990-05-15"
                 }
               }
             }
@@ -76,44 +88,54 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Contact created successfully."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error."
           }
         }
       }
     },
     "/contacts/{id}": {
       "put": {
-        "description": "",
+        "summary": "Update an existing contact",
+        "description": "This endpoint updates an existing contact by its unique ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "The ID of the contact to update.",
             "type": "string"
           },
           {
             "name": "body",
             "in": "body",
+            "description": "The updated contact information.",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Jane"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "jane.doe@example.com"
                 },
                 "favoriteColor": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "green"
                 },
                 "birthday": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "date",
+                  "example": "1992-10-20"
                 }
               }
             }
@@ -121,35 +143,37 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact updated successfully."
           },
           "404": {
-            "description": "Not Found"
+            "description": "Contact not found."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error."
           }
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Delete an existing contact",
+        "description": "This endpoint deletes a contact by its unique ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "The ID of the contact to delete.",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Contact deleted successfully."
           },
           "404": {
-            "description": "Not Found"
+            "description": "Contact not found."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error."
           }
         }
       }
